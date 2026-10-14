@@ -18,7 +18,11 @@ supabase db reset
 npm run dev
 ```
 
-Open http://localhost:3002. `supabase db reset` applies the migrations and loads the clearly labelled demo seed data into your local database.
+Open http://localhost:3002. The project defaults to port 3002 because ports 3000 and 3001 were already in use by other projects in the original development setup; this lets those local apps run at the same time. A port is just the local address where one server listens. If port 3000 is free on your computer, it is completely fine to use it: run `npx next dev --port 3000` and open http://localhost:3000. To make that the default for this copy, change the `dev` script in `package.json` (and `start` if needed). Only one app can use the same port at a time.
+
+If you test notification or reminder emails locally, make sure `NEXT_PUBLIC_SITE_URL` in your ignored `.env.local` matches the address and port you chose. Vercel manages the port for deployed apps; these choices only affect local development.
+
+`supabase db reset` applies the migrations and loads the clearly labelled demo seed data into your local database.
 
 ## Environment
 
@@ -30,7 +34,7 @@ Open http://localhost:3002. `supabase db reset` applies the migrations and loads
 
 | Command | Purpose |
 | --- | --- |
-| `npm run dev` | Start the local site on port 3002 |
+| `npm run dev` | Start the local site on port 3002 (the default can be changed if another port is free) |
 | `npm run typecheck` | Check TypeScript types |
 | `npm run build` | Create a production build |
 | `npm run test:db` | Run database behavior checks |
