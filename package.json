@@ -1,0 +1,38 @@
+{
+  "name": "hotel-platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3002",
+    "build": "next build",
+    "start": "next start -p 3002",
+    "typecheck": "tsc --noEmit",
+    "test:db": "node scripts/db-test.mjs",
+    "seed:users": "node scripts/seed-dev-users.mjs",
+    "make-admin": "node scripts/make-admin.mjs"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.47.0",
+    "jsqr": "^1.4.0",
+    "lucide-react": "^1.56.0",
+    "next": "^15.1.0",
+    "nodemailer": "^10.1.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/nodemailer": "^8.0.2",
+    "@types/pg": "^8.11.10",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "embedded-postgres": "^17.2.0-beta.15",
+    "pg": "^8.13.1",
+    "typescript": "^5.7.0"
+  }
+}

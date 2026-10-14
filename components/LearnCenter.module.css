@@ -1,0 +1,729 @@
+.page {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  color: var(--ink);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  color: var(--brand);
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+}
+
+.eyebrow {
+  margin: 0 0 .35rem;
+  color: #89703e;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.intro {
+  margin: .35rem 0 0;
+  color: var(--muted);
+}
+
+.revision {
+  display: flex;
+  flex: 0 0 220px;
+  flex-direction: column;
+  gap: .1rem;
+  padding: .7rem .8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  font-size: .76rem;
+}
+
+.revision > span,
+.revision small {
+  color: var(--muted);
+}
+
+.revision strong {
+  font: 700 .88rem/1.4 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.revision a {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  width: fit-content;
+  margin-top: .3rem;
+}
+
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.progressRow label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.progressRow progress {
+  width: min(230px, 32vw);
+  height: .55rem;
+  accent-color: var(--brand);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(190px, 220px) minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+
+.toc,
+.lesson {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.toc {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: .85rem;
+}
+
+.tocHeading {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  margin: 0 0 .75rem;
+  color: var(--brand);
+  font-weight: 750;
+  font-size: .9rem;
+}
+
+.lessonList {
+  display: grid;
+  gap: .2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lessonList button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: start;
+  gap: .4rem;
+  padding: .55rem .45rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #354247;
+  text-align: left;
+  font: inherit;
+  font-size: .78rem;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+.lessonList button:hover {
+  background: #f5f4ef;
+}
+
+.lessonList button.activeLesson {
+  background: #edf4f1;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.lessonNumber {
+  color: #8b8c84;
+  font: 700 .7rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.mobileSelectLabel,
+.mobileSelect {
+  display: none;
+}
+
+.lesson {
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.lesson > h2 {
+  margin: 0;
+  color: var(--brand);
+  font-size: clamp(1.45rem, 2vw, 1.8rem);
+}
+
+.lessonSummary {
+  margin: .35rem 0 1.2rem;
+  color: var(--muted);
+}
+
+.lessonContent {
+  font-size: .93rem;
+  line-height: 1.72;
+}
+
+.lessonContent h2 {
+  margin: 1.15rem 0 .4rem;
+  color: #334440;
+  font: 700 1.04rem/1.4 system-ui, sans-serif;
+}
+
+.lessonContent p {
+  margin: .6rem 0;
+}
+
+.lessonContent ul {
+  padding-left: 1.25rem;
+}
+
+.lessonContent li + li {
+  margin-top: .25rem;
+}
+
+.lessonContent code,
+.sourceList code {
+  padding: .08rem .25rem;
+  border-radius: 4px;
+  background: #f1f0eb;
+  color: #314b43;
+  font: .86em ui-monospace, SFMono-Regular, Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+
+.lessonContent pre {
+  overflow-x: auto;
+  padding: .85rem;
+  border-radius: 6px;
+  background: #f5f4ef;
+}
+
+.lessonContent pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.sources {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.sourceHeading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-bottom: .65rem;
+  color: var(--brand);
+}
+
+.sourceHeading h3 {
+  margin: 0;
+  font: 700 .92rem/1.4 system-ui, sans-serif;
+}
+
+.sourceHeading p {
+  margin: .15rem 0 0;
+  color: var(--muted);
+  font-size: .76rem;
+}
+
+.sourceList {
+  display: grid;
+  gap: .4rem;
+}
+
+.sourceList button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .2rem;
+  min-width: 0;
+  padding: .5rem .6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sourceList button:hover,
+.sourceList button.activeSource {
+  border-color: #8ba79e;
+  background: #f5f8f6;
+}
+
+.sourceList code {
+  color: var(--brand);
+  font-size: .75rem;
+}
+
+.sourceList span {
+  color: var(--muted);
+  font-size: .74rem;
+}
+
+.sourceStatus {
+  margin: .65rem 0 0;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.sourcePreview {
+  margin-top: .75rem;
+  overflow: hidden;
+  border: 1px solid #d7d4ca;
+  border-radius: 7px;
+  background: #faf9f6;
+}
+
+.previewHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem;
+  padding: .55rem .7rem;
+  border-bottom: 1px solid #dedbd2;
+  color: var(--brand);
+  font-size: .77rem;
+  overflow-wrap: anywhere;
+}
+
+.closeSource {
+  flex: 0 0 auto;
+  padding: .25rem .45rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.sourcePreview pre {
+  max-height: 440px;
+  margin: 0;
+  overflow: auto;
+  padding: .8rem;
+  color: #26332f;
+  font: .74rem/1.55 ui-monospace, SFMono-Regular, Consolas, monospace;
+  tab-size: 2;
+  white-space: pre;
+}
+
+.lessonNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem;
+  margin-top: 1.25rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--line);
+}
+
+.lessonNavigation button,
+.chatFooter button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .3rem;
+  min-height: 38px;
+  padding: .45rem .7rem;
+  border: 1px solid var(--brand);
+  border-radius: 6px;
+  background: var(--brand);
+  color: #fff;
+  font: 600 .82rem/1.2 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.lessonNavigation button:disabled {
+  border-color: var(--line);
+  background: #f3f2ee;
+  color: #8b8c84;
+  cursor: not-allowed;
+}
+
+.hibiWidget {
+  position: fixed;
+  z-index: 80;
+  right: max(22px, env(safe-area-inset-right));
+  bottom: max(22px, env(safe-area-inset-bottom));
+  color: var(--ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.hibiLauncher {
+  display: grid;
+  width: 60px;
+  height: 60px;
+  place-items: center;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #243b32;
+  color: #fff;
+  box-shadow: 0 6px 22px rgba(24, 40, 32, .25);
+  cursor: pointer;
+}
+
+.hibiLauncher:hover {
+  transform: translateY(-2px);
+}
+
+.hibiLauncher:focus-visible,
+.hibiPanel button:focus-visible,
+.hibiPanel textarea:focus-visible {
+  outline: 3px solid #d5b678;
+  outline-offset: 2px;
+}
+
+.hibiLauncher img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hibiLauncher > span {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.hibiPanel {
+  position: absolute;
+  right: 0;
+  bottom: 76px;
+  display: flex;
+  width: min(390px, calc(100vw - 32px));
+  height: min(640px, calc(100dvh - 116px));
+  min-height: 390px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #dedbd1;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 14px 48px rgba(29, 41, 33, .22);
+}
+
+.hibiHeader {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: .65rem;
+  padding: .8rem .9rem;
+  border-bottom: 1px solid #dedbd1;
+  background: #243b32;
+  color: #fff;
+}
+
+.hibiAvatar {
+  display: block;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
+}
+
+.hibiHeading {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.hibiHeading strong {
+  font-size: .94rem;
+}
+
+.hibiHeading span {
+  color: rgba(255, 255, 255, .78);
+  font-size: .72rem;
+}
+
+.hibiClose {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font: 300 1.45rem/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.hibiClose:hover {
+  background: rgba(255, 255, 255, .13);
+}
+
+.privacyNote {
+  flex: 0 0 auto;
+  margin: .45rem .8rem .2rem;
+  color: #686a63;
+  font-size: .66rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.chatMessages {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: .6rem;
+  overflow: auto;
+  padding: .8rem .85rem;
+  overscroll-behavior: contain;
+}
+
+.userMessage,
+.hibiMessage {
+  max-width: 88%;
+  padding: .66rem .78rem;
+  border-radius: 14px;
+  font-size: .82rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.userMessage {
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+  background: #e7eee6;
+  color: #243b32;
+}
+
+.hibiMessage {
+  align-self: flex-start;
+  border: 1px solid #e8e5dc;
+  border-bottom-left-radius: 5px;
+  background: #f5f3ed;
+}
+
+.messageRole {
+  display: block;
+  margin-bottom: .18rem;
+  color: #68736e;
+  font-size: .66rem;
+  font-weight: 750;
+}
+
+.messageBody :global(p) {
+  margin: .2rem 0;
+}
+
+.messageBody :global(p:first-child) {
+  margin-top: 0;
+}
+
+.messageBody :global(p:last-child) {
+  margin-bottom: 0;
+}
+
+.messageBody :global(ul),
+.messageBody :global(ol) {
+  margin: .35rem 0;
+  padding-left: 1.1rem;
+}
+
+.messageBody :global(pre) {
+  overflow-x: auto;
+  padding: .5rem;
+  border-radius: 5px;
+  background: #fff;
+  font-size: .72rem;
+}
+
+.messageBody :global(code) {
+  overflow-wrap: anywhere;
+  font: .92em ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.thinking {
+  margin: 0;
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.error {
+  margin: .45rem 0;
+  color: var(--bad);
+  font-size: .78rem;
+}
+
+.chatForm {
+  display: grid;
+  flex: 0 0 auto;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .45rem;
+  margin: 0 .8rem .8rem;
+  padding: .35rem .4rem .35rem .75rem;
+  border: 1px solid #dedbd1;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.chatForm label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.chatForm textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  max-height: 110px;
+  resize: vertical;
+  padding: .5rem 0;
+  border: 0;
+  background: transparent;
+  font-size: .81rem;
+}
+
+.chatFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .15rem;
+  color: #77796f;
+  font-size: .58rem;
+}
+
+.chatFooter button {
+  min-height: 34px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #243b32;
+  font-size: 0;
+}
+
+.chatFooter button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.chatFooter button:disabled {
+  background: #a9ada7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1280px) {
+  .layout {
+    grid-template-columns: minmax(180px, 210px) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .revision {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toc {
+    position: static;
+    max-height: none;
+  }
+
+  .tocHeading {
+    margin-bottom: .45rem;
+  }
+
+  .mobileSelectLabel {
+    display: block;
+    margin-bottom: .25rem;
+    color: var(--muted);
+    font-size: .76rem;
+  }
+
+  .mobileSelect {
+    display: block;
+  }
+
+  .lessonList {
+    display: none;
+  }
+
+  .hibiWidget {
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(14px, env(safe-area-inset-bottom));
+  }
+
+  .hibiLauncher {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hibiPanel {
+    position: fixed;
+    right: 10px;
+    bottom: calc(82px + env(safe-area-inset-bottom));
+    left: 10px;
+    width: auto;
+    height: min(640px, calc(100dvh - 104px - env(safe-area-inset-bottom)));
+    min-height: 340px;
+  }
+
+  .progressRow {
+    flex-wrap: wrap;
+  }
+
+  .progressRow progress {
+    flex: 1 1 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lesson {
+    padding: .9rem;
+  }
+
+  .sourcePreview pre {
+    font-size: .68rem;
+  }
+}

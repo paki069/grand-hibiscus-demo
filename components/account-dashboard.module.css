@@ -1,0 +1,914 @@
+.dashboard {
+  display: grid;
+  gap: 1.5rem;
+  color: var(--guest-ink, var(--ink));
+}
+
+.pageHeader,
+.sectionHeading,
+.reservationTop,
+.reservationBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pageHeader {
+  align-items: flex-end;
+  padding: .4rem 0 .2rem;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  color: var(--guest-forest, var(--brand));
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.eyebrow,
+.heroEyebrow {
+  margin: 0 0 .55rem;
+  color: var(--guest-gold, var(--accent));
+  font-size: .68rem;
+  font-weight: 750;
+  letter-spacing: .15em;
+  line-height: 1.4;
+}
+
+.memberEmail {
+  margin: .55rem 0 0;
+  color: var(--guest-muted, var(--muted));
+  font-size: .88rem;
+}
+
+.memberMark {
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(180, 146, 94, .46);
+  border-radius: 50%;
+  color: var(--guest-forest, var(--brand));
+  background: #efe9da;
+  font: 500 1.45rem/1 Georgia, 'Times New Roman', serif;
+}
+
+.tabs {
+  display: flex;
+  gap: .35rem;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--guest-line, var(--line));
+  scrollbar-width: thin;
+}
+
+.tab {
+  position: relative;
+  flex: 0 0 auto;
+  min-height: 46px;
+  padding: .55rem 1rem .72rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--guest-muted, var(--muted));
+  background: transparent;
+  font: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.tab:hover,
+.tab:focus-visible {
+  color: var(--guest-forest, var(--brand));
+}
+
+.tab:focus-visible,
+.heroLink:focus-visible,
+.textButton:focus-visible,
+.reservationLink:focus-visible {
+  outline: 2px solid var(--guest-gold, var(--accent));
+  outline-offset: 3px;
+}
+
+.activeTab {
+  border-bottom-color: var(--guest-forest, var(--brand));
+  color: var(--guest-forest, var(--brand));
+  font-weight: 700;
+}
+
+.panel {
+  min-width: 0;
+}
+
+.panel:focus {
+  outline: none;
+}
+
+.overview {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.rewardHero {
+  position: relative;
+  isolation: isolate;
+  min-height: 245px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(210px, .7fr);
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid #20392f;
+  border-radius: 4px;
+  color: #fffefa;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(180, 146, 94, .24), transparent 38%),
+    linear-gradient(120deg, #203a30, #2b493c);
+}
+
+.heroCopy,
+.balanceCard {
+  position: relative;
+  z-index: 1;
+}
+
+.heroEyebrow {
+  color: #d7bb88;
+}
+
+.heroCopy h2 {
+  max-width: 540px;
+  margin: 0;
+  color: #fffefa;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+}
+
+.heroCopy > p:not(.heroEyebrow) {
+  max-width: 460px;
+  margin: .75rem 0 1.1rem;
+  color: rgba(255, 254, 250, .76);
+  font-size: .9rem;
+}
+
+.heroLink,
+.textButton {
+  padding: .15rem 0;
+  border: 0;
+  color: var(--guest-forest, var(--brand));
+  background: transparent;
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.heroLink {
+  color: #f1d8a9;
+}
+
+.heroLink span,
+.textButton span,
+.reservationLink span {
+  display: inline-block;
+  margin-left: .25rem;
+  transition: transform .18s ease;
+}
+
+.heroLink:hover span,
+.textButton:hover span,
+.reservationLink:hover span {
+  transform: translateX(3px);
+}
+
+.balanceCard {
+  display: grid;
+  justify-items: end;
+  gap: .25rem;
+  text-align: right;
+}
+
+.balanceLabel {
+  color: rgba(255, 254, 250, .66);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+.balanceNumber {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+}
+
+.balanceNumber strong {
+  color: #fffefa;
+  font: 500 clamp(3.2rem, 6vw, 5rem)/1 Georgia, 'Times New Roman', serif;
+  letter-spacing: -.05em;
+}
+
+.balanceNumber span,
+.balanceNote {
+  color: rgba(255, 254, 250, .72);
+  font-size: .82rem;
+}
+
+.heroOrnament {
+  position: absolute;
+  z-index: 0;
+  right: 24%;
+  bottom: -5.5rem;
+  color: rgba(255, 255, 255, .045);
+  font-size: 19rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--guest-line, var(--line));
+  background: var(--guest-white, var(--surface));
+}
+
+.statCard {
+  display: grid;
+  gap: .15rem;
+  padding: 1.1rem 1.3rem;
+}
+
+.statCard + .statCard {
+  border-left: 1px solid var(--guest-line, var(--line));
+}
+
+.statLabel {
+  color: var(--guest-muted, var(--muted));
+  font-size: .72rem;
+  font-weight: 650;
+  letter-spacing: .04em;
+}
+
+.statCard strong {
+  color: var(--guest-forest, var(--brand));
+  font: 500 1.85rem/1.2 Georgia, 'Times New Roman', serif;
+}
+
+.statCard > span:last-child {
+  color: var(--guest-muted, var(--muted));
+  font-size: .73rem;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 1.2rem;
+}
+
+.progressCard,
+.recentActivity,
+.bookingPreview,
+.detailSection {
+  min-width: 0;
+  padding: clamp(1.15rem, 2.5vw, 1.7rem);
+  border: 1px solid var(--guest-line, var(--line));
+  background: var(--guest-white, var(--surface));
+}
+
+.sectionHeading {
+  align-items: flex-start;
+}
+
+.sectionHeading .eyebrow {
+  margin-bottom: .2rem;
+}
+
+.sectionHeading h2,
+.tabIntro h2 {
+  margin: 0;
+  color: var(--guest-forest, var(--brand));
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 500;
+}
+
+.rewardMark {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(180, 146, 94, .42);
+  border-radius: 50%;
+  color: var(--guest-gold, var(--accent));
+  font-size: 1.1rem;
+}
+
+.progressMessage {
+  min-height: 2.7em;
+  margin: 1.15rem 0 .75rem;
+  color: var(--guest-muted, var(--muted));
+  font-size: .84rem;
+}
+
+.progressTrack {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #ece9df;
+}
+
+.progressTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #8e754e, var(--guest-gold, var(--accent)));
+  transition: width .35s ease;
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-top: .45rem;
+  color: var(--guest-muted, var(--muted));
+  font-size: .72rem;
+}
+
+.progressMeta strong {
+  color: var(--guest-forest, var(--brand));
+}
+
+.progressCard > .textButton {
+  margin-top: .95rem;
+}
+
+.activityList,
+.fullActivityList {
+  margin: .65rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.activityItem {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .7rem;
+  min-width: 0;
+  padding: .75rem 0;
+  border-top: 1px solid var(--guest-line, var(--line));
+}
+
+.activityIcon {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--guest-forest, var(--brand));
+  background: #edf1e9;
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+.activityCopy {
+  display: grid;
+  min-width: 0;
+  gap: .12rem;
+}
+
+.activityCopy strong {
+  overflow: hidden;
+  color: var(--guest-ink, var(--ink));
+  font-size: .8rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activityCopy small {
+  color: var(--guest-muted, var(--muted));
+  font-size: .7rem;
+}
+
+.positivePoints,
+.negativePoints {
+  white-space: nowrap;
+  font-size: .83rem;
+}
+
+.positivePoints {
+  color: #34734b;
+}
+
+.negativePoints {
+  color: var(--guest-muted, var(--muted));
+}
+
+.emptyCopy {
+  margin: 1rem 0 .2rem;
+  color: var(--guest-muted, var(--muted));
+  font-size: .84rem;
+}
+
+.bookingPreview > .sectionHeading,
+.detailSection > .tabIntro {
+  margin-bottom: 1rem;
+}
+
+.bookingSections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.reservationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .8rem;
+}
+
+.reservationCard {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid var(--guest-line, var(--line));
+  background: #fffefa;
+}
+
+.reservationTop {
+  align-items: flex-start;
+}
+
+.reservationLabel {
+  color: var(--guest-muted, var(--muted));
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+}
+
+.reservationReference {
+  overflow-wrap: anywhere;
+  margin-top: .8rem;
+  color: var(--guest-forest, var(--brand));
+  font: 500 1.35rem/1.2 Georgia, 'Times New Roman', serif;
+}
+
+.reservationServices {
+  min-height: 1.3rem;
+  margin: .25rem 0 .85rem;
+  color: var(--guest-muted, var(--muted));
+  font-size: .75rem;
+  text-transform: capitalize;
+}
+
+.reservationBottom {
+  margin-top: auto;
+  padding-top: .7rem;
+  border-top: 1px solid var(--guest-line, var(--line));
+  color: var(--guest-muted, var(--muted));
+  font-size: .72rem;
+}
+
+.reservationBottom strong {
+  color: var(--guest-ink, var(--ink));
+  font-size: .78rem;
+}
+
+.reservationLink {
+  align-self: flex-start;
+  margin-top: .85rem;
+  color: var(--guest-forest, var(--brand));
+  font-size: .77rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.emptyBookings {
+  display: flex;
+  min-height: 115px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem;
+  border: 1px dashed var(--guest-line, var(--line));
+  background: #fbfaf6;
+}
+
+.emptyBookings p {
+  margin: 0;
+  color: var(--guest-muted, var(--muted));
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.2rem;
+}
+
+.emptyBookings a {
+  color: var(--guest-forest, var(--brand));
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rewardsPanel,
+.detailSection {
+  display: grid;
+  gap: 1rem;
+}
+
+.tabIntro {
+  max-width: 650px;
+}
+
+.tabIntro .eyebrow {
+  margin-bottom: .35rem;
+}
+
+.tabIntro > p:last-child {
+  margin: .4rem 0 0;
+  color: var(--guest-muted, var(--muted));
+  font-size: .86rem;
+}
+
+.detailSection {
+  padding: clamp(1.15rem, 3vw, 2rem);
+}
+
+.bookingFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: -.2rem 0 .2rem;
+}
+
+.bookingFilter {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: .5rem;
+  padding: .45rem .8rem;
+  border: 1px solid var(--guest-line, var(--line));
+  border-radius: 999px;
+  color: var(--guest-muted, var(--muted));
+  background: var(--guest-white, var(--surface));
+  font: inherit;
+  font-size: .8rem;
+  cursor: pointer;
+}
+
+.bookingFilter span {
+  display: grid;
+  min-width: 1.45rem;
+  height: 1.45rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #f0eee7;
+  font-size: .68rem;
+  font-weight: 700;
+}
+
+.selectedBookingFilter {
+  border-color: var(--guest-forest, var(--brand));
+  color: var(--guest-forest, var(--brand));
+  background: #eff2ec;
+  font-weight: 700;
+}
+
+.bookingFilter:focus-visible {
+  outline: 2px solid var(--guest-gold, var(--accent));
+  outline-offset: 2px;
+}
+
+.fullActivityList {
+  margin-top: 0;
+}
+
+.earningGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .8rem;
+}
+
+.earningCard {
+  position: relative;
+  display: flex;
+  min-height: 215px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.2rem;
+  border: 1px solid var(--guest-line, var(--line));
+  background: var(--guest-white, var(--surface));
+}
+
+.earningIcon {
+  display: grid;
+  width: 2.15rem;
+  height: 2.15rem;
+  flex: 0 0 auto;
+  place-items: center;
+  margin-bottom: 1.1rem;
+  border: 1px solid rgba(180, 146, 94, .42);
+  border-radius: 50%;
+  color: var(--guest-gold, var(--accent));
+  font: 600 .72rem/1 Georgia, 'Times New Roman', serif;
+}
+
+.earningCard .eyebrow {
+  margin-bottom: .2rem;
+  font-size: .58rem;
+}
+
+.earningCard h3 {
+  margin: 0 0 .45rem;
+  color: var(--guest-forest, var(--brand));
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.earningCard > strong {
+  margin-top: auto;
+  color: var(--guest-forest, var(--brand));
+  font-size: .85rem;
+}
+
+.earningCard > p:last-child {
+  margin: .2rem 0 0;
+  color: var(--guest-muted, var(--muted));
+  font-size: .75rem;
+  line-height: 1.55;
+}
+
+.earningNote {
+  margin: 0;
+  padding: .8rem 1rem;
+  border-left: 3px solid var(--guest-gold, var(--accent));
+  color: var(--guest-muted, var(--muted));
+  background: #f6f3eb;
+  font-size: .78rem;
+}
+
+.backfillCallout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--guest-line, var(--line));
+  background: var(--guest-white, var(--surface));
+}
+
+.backfillCallout > div > strong {
+  color: var(--guest-forest, var(--brand));
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+}
+
+.backfillCallout > div > p {
+  max-width: 650px;
+  margin: .2rem 0 0;
+  color: var(--guest-muted, var(--muted));
+  font-size: .77rem;
+}
+
+.birthdayCard {
+  display: grid;
+  grid-template-columns: minmax(190px, .6fr) minmax(0, 1.4fr);
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid var(--guest-line, var(--line));
+  background:
+    radial-gradient(ellipse at 0 0, rgba(180, 146, 94, .1), transparent 45%),
+    var(--guest-white, var(--surface));
+}
+
+.birthdayPoints {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-right: 1.5rem;
+  border-right: 1px solid var(--guest-line, var(--line));
+}
+
+.birthdayPoints .earningIcon {
+  margin-bottom: .75rem;
+}
+
+.birthdayPoints > strong {
+  color: var(--guest-forest, var(--brand));
+  font: 500 clamp(2rem, 4vw, 3.2rem)/1.1 Georgia, 'Times New Roman', serif;
+}
+
+.birthdayDetails {
+  align-self: center;
+}
+
+.birthdayDetails h3 {
+  margin: 0 0 .5rem;
+  color: var(--guest-forest, var(--brand));
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.birthdayDetails p {
+  margin: 0;
+  color: var(--guest-muted, var(--muted));
+  font-size: .87rem;
+  line-height: 1.65;
+}
+
+.birthdayDetails .birthdayHelp {
+  margin-top: .65rem;
+  color: var(--guest-forest, var(--brand));
+  font-weight: 650;
+}
+
+.birthdayClaimButton {
+  min-height: 42px;
+  margin-top: .9rem;
+  padding: .55rem .9rem;
+  border: 1px solid var(--guest-forest, var(--brand));
+  color: #fff;
+  background: var(--guest-forest, var(--brand));
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.birthdayClaimButton:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+
+.birthdayMessage {
+  margin-top: .65rem !important;
+  color: var(--guest-forest, var(--brand)) !important;
+  font-weight: 650;
+}
+
+@media (max-width: 800px) {
+  .rewardHero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+  }
+
+  .heroOrnament {
+    right: 25%;
+  }
+
+  .overviewGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bookingSections {
+    grid-template-columns: 1fr;
+  }
+
+  .earningGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reservationGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .dashboard {
+    gap: 1.1rem;
+  }
+
+  .pageHeader {
+    align-items: center;
+  }
+
+  .pageHeader h1 {
+    font-size: 2rem;
+  }
+
+  .memberMark {
+    width: 2.7rem;
+    height: 2.7rem;
+  }
+
+  .tab {
+    min-height: 43px;
+    padding-inline: .72rem;
+    font-size: .82rem;
+  }
+
+  .rewardHero {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    padding: 1.45rem;
+  }
+
+  .heroCopy h2 {
+    font-size: 2.15rem;
+  }
+
+  .balanceCard {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .balanceNumber strong {
+    font-size: 3.3rem;
+  }
+
+  .heroOrnament {
+    right: -1rem;
+    bottom: 2rem;
+    font-size: 12rem;
+  }
+
+  .statCard {
+    padding: .8rem .65rem;
+  }
+
+  .statLabel {
+    min-height: 2.2em;
+    font-size: .63rem;
+  }
+
+  .statCard strong {
+    font-size: 1.5rem;
+  }
+
+  .statCard > span:last-child {
+    font-size: .63rem;
+  }
+
+  .progressCard,
+  .recentActivity,
+  .bookingPreview,
+  .detailSection {
+    padding: 1rem;
+  }
+
+  .sectionHeading {
+    gap: .5rem;
+  }
+
+  .sectionHeading h2,
+  .tabIntro h2 {
+    font-size: 1.35rem;
+  }
+
+  .sectionHeading > .textButton {
+    flex: 0 0 auto;
+    font-size: .73rem;
+  }
+
+  .reservationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .earningGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .earningCard {
+    min-height: 175px;
+  }
+
+  .backfillCallout {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .birthdayCard {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .birthdayPoints {
+    padding: 0 0 1.1rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--guest-line, var(--line));
+  }
+
+  .reservationServices {
+    min-height: 0;
+  }
+
+  .emptyBookings {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressTrack span,
+  .heroLink span,
+  .textButton span,
+  .reservationLink span {
+    transition: none;
+  }
+}
